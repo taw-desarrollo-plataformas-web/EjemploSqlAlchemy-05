@@ -1,9 +1,9 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-# se importa la clase(s) del 
+# se importa la clase(s) del
 # archivo genera_tablas
-from genera_tablas import Club, Jugador
+from genera_tablas import Club, Jugador, Logro
 
 # se importa información del archivo configuracion
 from configuracion import cadena_base_datos
@@ -16,7 +16,7 @@ engine = create_engine(cadena_base_datos)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-# se crea un objetos de tipo Club 
+# se crea un objetos de tipo Club
 club1 = Club(nombre="Barcelona", deporte="Fútbol", \
         fundacion=1920)
 
@@ -47,11 +47,14 @@ jugador6 = Jugador(nombre ="Adrián Gabbarini", dorsal=1, posicion="arquero", \
 jugador7 = Jugador(nombre ="Cristian Martinez", dorsal=9, posicion="delantero", \
         club=club3)
 
+logro1 = Logro(descripcion="Campeón LigaPro 2012", anio=2012, jugador=jugador1)
+logro2 = Logro(descripcion="Campeón LigaPro 2020", anio=2020, jugador=jugador2)
 # se agrega los objetos
 # a la sesión
 session.add(club1)
 session.add(club2)
 session.add(club3)
+
 session.add(jugador1)
 session.add(jugador2)
 session.add(jugador3)
@@ -59,5 +62,10 @@ session.add(jugador4)
 session.add(jugador5)
 session.add(jugador6)
 
+session.add(logro1)
+session.add(logro2)
+
 # se confirma las transacciones
 session.commit()
+
+print("Fin")

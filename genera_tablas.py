@@ -20,11 +20,11 @@ class Club(Base):
     nombre = Column(String)
     deporte = Column(String)
     fundacion = Column(Integer, nullable=False)
-    
+
     def __repr__(self):
         return "Club: nombre=%s deporte=%s fundacion=%d" % (
-                          self.nombre, 
-                          self.deporte, 
+                          self.nombre,
+                          self.deporte,
                           self.fundacion)
 
 class Jugador(Base):
@@ -35,12 +35,27 @@ class Jugador(Base):
     posicion = Column(String)
     club_id = Column(Integer, ForeignKey('club.id'))
     club  = relationship("Club", back_populates="jugadores")
-    
+
     def __repr__(self):
         return "Jugador: %s - dorsal:%d - posición: %s" % (
                 self.nombre, self.dorsal, self.posicion)
 
 Club.jugadores = relationship("Jugador", \
         back_populates="club")
+
+
+class Logro(Base):
+    __tablename__ = 'logro_jugador'
+    id = Column(Integer, primary_key=True)
+    descripcion = Column(String)
+    anio = Column(Integer)
+    jugador_id = Column(Integer, ForeignKey('jugador.id'))
+    jugador  = relationship("Jugador", back_populates="logros")
+
+    def __repr__(self):
+        return "Logro: %s - año: %d" % (self.descripcion, self.anio)
+
+Jugador.logros = relationship("Logro", \
+        back_populates="jugador")
 
 Base.metadata.create_all(engine)
