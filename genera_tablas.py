@@ -17,12 +17,12 @@ Base = declarative_base()
 class Club(Base):
     __tablename__ = 'club'
     id = Column(Integer, primary_key=True)
-    nombre = Column(String)
-    deporte = Column(String)
+    nombre = Column(String(100))
+    deporte = Column(String(100))
     fundacion = Column(Integer, nullable=False)
 
     def __repr__(self):
-        return "Club: nombre=%s deporte=%s fundacion=%d" % (
+        return "Club-información: nombre=%s deporte=%s fundación=%d" % (
                           self.nombre,
                           self.deporte,
                           self.fundacion)
@@ -30,9 +30,9 @@ class Club(Base):
 class Jugador(Base):
     __tablename__ = 'jugador'
     id = Column(Integer, primary_key=True)
-    nombre = Column(String, nullable=False)
+    nombre = Column(String(100), nullable=False)
     dorsal = Column(Integer)
-    posicion = Column(String)
+    posicion = Column(String(100))
     club_id = Column(Integer, ForeignKey('club.id'))
     club  = relationship("Club", back_populates="jugadores")
 
@@ -47,7 +47,7 @@ Club.jugadores = relationship("Jugador", \
 class Logro(Base):
     __tablename__ = 'logro_jugador'
     id = Column(Integer, primary_key=True)
-    descripcion = Column(String)
+    descripcion = Column(String(100))
     anio = Column(Integer)
     jugador_id = Column(Integer, ForeignKey('jugador.id'))
     jugador  = relationship("Jugador", back_populates="logros")

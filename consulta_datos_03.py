@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import and_ # se importa el operador and
 
-# se importa la clase(s) del 
+# se importa la clase(s) del
 # archivo genera_tablas
 from genera_tablas import Club, Jugador
 
@@ -18,9 +18,9 @@ engine = create_engine(cadena_base_datos)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-# Obtener todos los registros de 
-# la entidad Club 
-clubs = session.query(Club).all() 
+# Obtener todos los registros de
+# la entidad Club
+clubs = session.query(Club).all()
 
 # Se recorre la lista a través de un ciclo
 # repetitivo for en python
@@ -29,12 +29,10 @@ for s in clubs:
     print("%s" % (s))
     # desde cada objeto de la lista
     # de tipo Club
-    # se puede acceder 
+    # se puede acceder
     # a los jugadores
     jugadores = s.jugadores # es una secuencia
     for i in jugadores:
-        print(i)
-        
+        print("%d -  %s - (id:%d)" % (i.dorsal, i.nombre, i.id))
+
     print("---------")
-
-

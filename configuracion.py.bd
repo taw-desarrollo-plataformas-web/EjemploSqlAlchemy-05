@@ -2,5 +2,4 @@
 #
 # cadena conector a la base de datos
 #
-# cadena_base_datos = 'sqlite:///base001.db'
 cadena_base_datos = 'mysql+pymysql://miusuario:miclave@127.0.0.1:3306/miapp?charset=utf8mb4'
