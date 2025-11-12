@@ -23,6 +23,8 @@
 -----
 #### Opción 2 (usar mysql con docker)
 
+* Para esta opción se debe instalar Docker en el sistema operativo
+
 1. Cambiar el nombre del archivo configuracion.py a configuracion.py.sqlite
 2. Cambiar el nombre del archivo configuracion.py.bd a configuracion.py
 3. Levantar el contenedor de mysql, a través de docker-compose, usar el siguiente comando desde el terminal.
