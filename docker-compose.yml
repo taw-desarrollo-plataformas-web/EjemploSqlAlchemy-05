@@ -1,0 +1,25 @@
+
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: superseguro
+      MYSQL_DATABASE: miapp
+      MYSQL_USER: miusuario
+      MYSQL_PASSWORD: miclave
+    ports:
+      - "3306:3306"
+    command:
+      [
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_unicode_ci"
+      ]
+    volumes:
+      - mysql_data:/var/lib/mysql   
+
+volumes:
+  mysql_data:                      
