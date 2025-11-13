@@ -12,13 +12,19 @@
 2. Ejecutar el script genera_tablas.py (desde el terminal o algún IDE)
 
 * Revisar las entidades generadas en la base de datos sqlite
+<img width="778" height="533" alt="image" src="https://github.com/user-attachments/assets/e2334fac-25fb-40c7-af5a-7aae2a9da616" />
 
 
 3. Ejecutar el script genera_datos.py
 
 * Revisar los datos generados en la entidades de la base de datos sqlite
+<img width="778" height="533" alt="image" src="https://github.com/user-attachments/assets/85ba7a6e-ce83-42e9-92c1-24a99153b566" />
+
 
 4. Ejecutar los scripts consulta_datos_01.py, consulta_datos_02.py ... consulta_datos_05.py
+
+<img width="626" height="404" alt="image" src="https://github.com/user-attachments/assets/0e01645f-43d3-4e5a-aaf6-06557be61d71" />
+
 
 -----
 #### Opción 2 (usar mysql con docker)
@@ -35,13 +41,21 @@ docker compose up -d
 ```
 docker exec -it mysql8 mysql -umiusuario -p
 ```
+<img width="1205" height="472" alt="image" src="https://github.com/user-attachments/assets/6afca994-0b08-4434-bf52-657874a10163" />
+
 5. Ejecutar el script genera_tablas.py (desde el terminal o algún IDE)
 
 * Revisar las entidades generadas en la base de datos mysql
 
+<img width="477" height="287" alt="image" src="https://github.com/user-attachments/assets/3fd5586b-6e30-44f1-95e0-f72016e05767" />
+
+
 6. Ejecutar el script genera_datos.py
 
 * Revisar los datos generados en las entidades de la base de datos mysql
+
+<img width="703" height="304" alt="image" src="https://github.com/user-attachments/assets/649d90df-80d2-4f4f-a997-72945a5dc312" />
+
 
 7. Ejecutar los scripts consulta_datos_01.py, consulta_datos_02.py ... consulta_datos_05.py
 8. Dar de baja la instancia de mysql
